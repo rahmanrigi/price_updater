@@ -1,1 +1,1 @@
-"# price_updater" 
+# woo_automate_price_updater

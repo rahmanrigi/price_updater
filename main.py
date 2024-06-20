@@ -36,7 +36,7 @@ try:
 except KeyError:
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
-    URL_SECRET = "Token not available!"
+    URL_SECRET = 'https://psgift.ir/wp-json/wc/v3/products'
     EMAIL_SECRET = "Token not available!"
     EMAIL_APP_PASSWORD = "Token not available!"
     RECEIVE_EMAIL = "Token not available!"

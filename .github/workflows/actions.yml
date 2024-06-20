@@ -25,7 +25,7 @@ jobs:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          URL_SECRET: ${{ secrets.URL_SECRET }}
+          URL_SECRET: ${{ secrets.PRODUCTS_URL }}
           BATCH_PRODUCTS_UPDATE_URL: ${{ secrets.BATCH_PRODUCTS_UPDATE_URL }}
           EMAIL_SECRET: ${{ secrets.EMAIL_SECRET }}
           EMAIL_APP_PASSWORD_LATEST: ${{ secrets.EMAIL_APP_PASSWORD_LATEST }}

@@ -27,7 +27,7 @@ try:
     URL = os.environ["URL"]
     PRODUCTS_URL = os.environ["PRODUCTS_URL"]
     BATCH_PRODUCTS_UPDATE_URL = os.environ["BATCH_PRODUCTS_UPDATE_URL"]
-    EMAIL = os.environ["EMAIL"]
+    EMAIL_SECRET = os.environ["EMAIL_SECRET"]
     EMAIL_APP_PASSWORD = os.environ["EMAIL_APP_PASSWORD"]
     EMAIL_APP_PASSWORD_LATEST = os.environ["EMAIL_APP_PASSWORD_LATEST"]
     RECEIVE_EMAIL = os.environ["RECEIVE_EMAIL"]
@@ -38,7 +38,7 @@ except KeyError:
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
     URL = "Token not available!"
-    EMAIL = "Token not available!"
+    EMAIL_SECRET = "Token not available!"
     EMAIL_APP_PASSWORD = "Token not available!"
     RECEIVE_EMAIL = "Token not available!"
     CURRENCY_URL = "Token not available!"
@@ -67,8 +67,8 @@ except Exception as error:
     logger.info(f"unsuccessful request: {error}")
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
-        connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-        connection.sendmail(from_addr=EMAIL,
+        connection.login(user=EMAIL_SECRET, password=EMAIL_APP_PASSWORD_LATEST)
+        connection.sendmail(from_addr=EMAIL_SECRET,
                         to_addrs=f"{RECEIVE_EMAIL}",
                         msg=f"Subject:Woo Price update failed\n\nAccess to the products was fail. So, products price update failed. Error message: {error}")
 
@@ -90,8 +90,8 @@ def price_finder():
         logger.info(f"unsuccessful request: {error}")
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
-            connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-            connection.sendmail(from_addr=EMAIL,
+            connection.login(user=EMAIL_SECRET, password=EMAIL_APP_PASSWORD_LATEST)
+            connection.sendmail(from_addr=EMAIL_SECRET,
                                 to_addrs=f"{RECEIVE_EMAIL}",
                                 msg=f"Subject:Woo (pond, try, aed, euro,) Price update failed\n\nconnection to {url} wasn't successful. So, products price update failed. Error message: {error}")
     try:
@@ -102,8 +102,8 @@ def price_finder():
         logger.info(f"unsuccessful request: {error}")
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
-            connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-            connection.sendmail(from_addr=EMAIL,
+            connection.login(user=EMAIL_SECRET, password=EMAIL_APP_PASSWORD_LATEST)
+            connection.sendmail(from_addr=EMAIL_SECRET,
                                 to_addrs=f"{RECEIVE_EMAIL}",
                                 msg=f"Subject:Woo (DOLLAR Products) Price update failed\n\nconnection to {dollar_url} wasn't successful. So, products price update failed. Error message: {error}")
 
@@ -161,8 +161,8 @@ if __name__ == "__main__":
         if woo_response.status_code == 200:
             with smtplib.SMTP("smtp.gmail.com") as connection:
                 connection.starttls()
-                connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-                connection.sendmail(from_addr=EMAIL,
+                connection.login(user=EMAIL_SECRET, password=EMAIL_APP_PASSWORD_LATEST)
+                connection.sendmail(from_addr=EMAIL_SECRET,
                                     to_addrs=f"{RECEIVE_EMAIL}",
                                     msg=f"Subject:Products updated\n\n Congratulation! All products price updated successfully. connection to woocommerce was Ok!")
             # print("all products prices update was success.")
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     except:
         with smtplib.SMTP("smtp.gmail.com") as connection:
                 connection.starttls()
-                connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-                connection.sendmail(from_addr=EMAIL,
+                connection.login(user=EMAIL_SECRET, password=EMAIL_APP_PASSWORD_LATEST)
+                connection.sendmail(from_addr=EMAIL_SECRET,
                                     to_addrs=f"{RECEIVE_EMAIL}",
                                     msg=f"Subject:update failed\n\n There is something wrong with woocommerce connection. All products price updated *wasn't* successfully")

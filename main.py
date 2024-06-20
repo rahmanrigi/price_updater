@@ -24,7 +24,7 @@ logger.addHandler(logger_file_handler)
 try:
     CONSUMER_KEY = os.environ["CONSUMER_KEY"]
     CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
-    URL = os.environ["URL"]
+    URL_SECRET = os.environ["URL_SECRET"]
     PRODUCTS_URL = os.environ["PRODUCTS_URL"]
     BATCH_PRODUCTS_UPDATE_URL = os.environ["BATCH_PRODUCTS_UPDATE_URL"]
     EMAIL_SECRET = os.environ["EMAIL_SECRET"]
@@ -37,7 +37,7 @@ except KeyError:
     SOME_SECRET = "Token not available!"
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
-    URL = "Token not available!"
+    URL_SECRET = "Token not available!"
     EMAIL_SECRET = "Token not available!"
     EMAIL_APP_PASSWORD = "Token not available!"
     RECEIVE_EMAIL = "Token not available!"
@@ -60,7 +60,7 @@ param = {
     "per_page": 100
 }
 try:
-    response = requests.get(url=URL, headers=headers, params=param)
+    response = requests.get(url=URL_SECRET, headers=headers, params=param)
     response.raise_for_status()
     products = response.json()
 except Exception as error:

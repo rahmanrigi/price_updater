@@ -25,12 +25,13 @@ jobs:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          URL: ${{ secrets.URL }}
+          URL_SECRET: ${{ secrets.URL_SECRET }}
           BATCH_PRODUCTS_UPDATE_URL: ${{ secrets.BATCH_PRODUCTS_UPDATE_URL }}
           EMAIL_SECRET: ${{ secrets.EMAIL_SECRET }}
           EMAIL_APP_PASSWORD_LATEST: ${{ secrets.EMAIL_APP_PASSWORD_LATEST }}
           RECEIVE_EMAIL: ${{ secrets.RECEIVE_EMAIL }}
           CURRENCY_URL: ${{ secrets.CURRENCY_URL }}
+          
         run: python main.py
           
       - name: commit files

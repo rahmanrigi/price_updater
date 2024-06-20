@@ -34,7 +34,6 @@ try:
     CURRENCY_URL = os.environ["CURRENCY_URL"]
     DOLLAR_URL = os.environ["DOLLAR_URL"]
 except KeyError:
-    SOME_SECRET = "Token not available!"
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
     URL_SECRET = "Token not available!"
